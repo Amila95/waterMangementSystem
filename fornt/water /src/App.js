@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
-import { setCurrentUser} from './actions/authActions';
+import { setCurrentUser, logoutUSer} from './actions/authActions';
 
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 
@@ -20,10 +20,31 @@ const Page404 = React.lazy(() => import('./views/Pages/Page404'));
 const Page500 = React.lazy(() => import('./views/Pages/Page500'));
 
 
-if(localStorage.jwtToken){
-  setAuthToken(localStorage.jwtToken);
-  const decode = jwt_decode(localStorage.jwtToken);
-  store.dispatch(setCurrentUser(decode));
+// if(localStorage.jwtToken){
+//   setAuthToken(localStorage.jwtToken);
+//   const decode = jwt_decode(localStorage.jwtToken);
+//   store.dispatch(setCurrentUser(decode));
+// }
+
+if (localStorage.jwtToken) {
+  //set auth token header auth
+      setAuthToken(localStorage.jwtToken);
+  //decode token and get user info and exp
+      const decoded = jwt_decode(localStorage.jwtToken);
+  //set user and is authenticated
+      store.dispatch(setCurrentUser(decoded));
+  // check for expire token
+      const currentTime = Date.now() / 1000;
+      if (decoded.exp < currentTime) {
+      //logout user
+      store.dispatch(logoutUSer());
+          // store.dispatch(logoutUser());
+      //clear current profile
+
+      //redirect to login
+      //window.location.href = "/login";
+      this.props.history.push('/login')
+  }
 }
 
 class App extends Component {

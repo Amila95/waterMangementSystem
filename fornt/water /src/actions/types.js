@@ -4,6 +4,7 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const CLEAR_CURRENT_PROFILE = 'CLEAR_CURRENT_PROFILE';
 export const ADD_CLIENT = 'ADD_CLIENT';
 export const ADD_USER = 'ADD_USER';
+export const ADD_REPORT_DETAILS = 'ADD_REPORT_DETAILS';
 
 
 

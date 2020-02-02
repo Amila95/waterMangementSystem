@@ -24,6 +24,7 @@ import navigation from '../../_nav';
 import navigation_user from '../../_nav_user';
 // routes config
 import routes from '../../routes';
+import { logoutUSer} from '../../actions/authActions';
 
 const DefaultAside = React.lazy(() => import('./DefaultAside'));
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
@@ -35,6 +36,7 @@ class DefaultLayout extends Component {
 
   signOut(e) {
     e.preventDefault()
+    this.props.logoutUSer();
     this.props.history.push('/login')
   }
   // nav = ()=>{if(this.props.auth.role=="User"){
@@ -112,4 +114,4 @@ const mapStateToProps =(state) =>({
   errors:state.errors
 })
 
-export default connect (mapStateToProps,{})(withRouter(DefaultLayout));
+export default connect (mapStateToProps,{logoutUSer})(withRouter(DefaultLayout));

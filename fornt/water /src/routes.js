@@ -38,7 +38,10 @@ const User = React.lazy(() => import('./views/Users/User'));
 ///
 const DrinkWaterClient = React.lazy(() => import('./views/DrinkIngWater/Client/index'));
 const AddNewClient = React.lazy(() => import('./views/DrinkIngWater/NewClient/index'));
+const ViewClient = React.lazy(() => import('./views/DrinkIngWater/ViewClient/index'));
 const CreatUser = React.lazy(() => import('./views/UserCreation/index'));
+const ReportDetails = React.lazy(() => import('./views/ReportDetails/index'));
+const CalculationSheet = React.lazy(() => import('./views/CalculationSheet/index'));
 const Documents = React.lazy(() => import('./views/Documents'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
@@ -48,6 +51,9 @@ const routes = [
   { path: '/drinkingwaterclient', name: 'DrinkingWaterClient', component: DrinkWaterClient },
   { path: '/addnewclient', name: 'AddNewClient', component: AddNewClient },
   { path: '/addnewuser', name: 'AddNewUser', component: CreatUser },
+  { path: '/viewclient/:id', name: 'ViewClient', component: ViewClient },
+  { path: '/reportDetails', name: 'ReportDetails', component: ReportDetails },
+  { path: '/calculationSheet', name: 'CalculationSheet', component: CalculationSheet },
   { path: '/Documents', name: 'AddNewUser', component: Documents },
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },

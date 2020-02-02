@@ -52,7 +52,7 @@ class index extends Component {
       address: this.state.address
     }
     //console.log(newUser);
-    this.props.addClient(userData);
+    this.props.addClient(userData, this.props.history);
   }
   componentWillReceiveProps(nextProps){
     if(nextProps.errors){

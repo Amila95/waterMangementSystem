@@ -85,7 +85,8 @@ class index extends Component {
 
               </CardBody>
               <CardFooter>
-              <Link to="/reportDetails">
+              {/* {`/drinkingwaterclient/viewclient/${this.state.id}`} */}
+              <Link to={`/drinkingwaterclient/viewclient/${this.props.match.params.id}/reportDetails`}>
                 <Button type="submit" size="sm" color="primary" ><i className="fa fa-dot-circle-o"></i> Make Report</Button>
                 </Link>
                 <Button type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>

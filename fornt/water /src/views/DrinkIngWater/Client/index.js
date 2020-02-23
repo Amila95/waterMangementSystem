@@ -47,24 +47,30 @@ class index extends Component {
 
     return (
       <div>
+        <Row>
+        <Col xs="12" sm="6">
                    <FormGroup>
                         <Label htmlFor="appendedInputButtons">Client Search Or Add New</Label>
                         <div className="controls">
+
                           <InputGroup>
-                            <Input id="appendedInputButtons" size="16" type="text" placeholder="Client Ref No" name="id" value={this.state.id} onChange={this.onChange}/>
+                            <Input style={{marginRight: "10px"}}id="appendedInputButtons" size="16" type="text" placeholder="Client Ref No" name="id" value={this.state.id} onChange={this.onChange} required/>
                             <InputGroupAddon addonType="append">
-                            <Link to={`/viewclient/${this.state.id}`}>
+                            <Link to={`/drinkingwaterclient/viewclient/${this.state.id}`}>
                               <Button color="primary">Search</Button>
                               </Link>
 
                             </InputGroupAddon>
+
                           </InputGroup>
 
                         </div>
                       </FormGroup>
-                      <Link to="/addnewclient">
+                      <Link to="/drinkingwaterclient/addnewclient">
                               <Button color="primary">Add New Client</Button>
                               </Link>
+                              </Col>
+                              </Row>
       </div>
     );
   }

@@ -44,6 +44,29 @@ class index extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
+  print() {
+    // var content = document.getElementById('printarea');
+    // var pri = document.getElementById('ifmcontentstoprint').contentWindow;
+
+    // pri.document.open();
+    // pri.document.write('<html><head><title>my div</title>');
+    // pri.document.write('<link rel="stylesheet" href="http://www.dynamicdrive.com/ddincludes/mainstyle.css" type="text/css" />');
+    // pri.document.write(content.innerHTML);
+
+    // pri.document.close();
+    // pri.focus();
+    // pri.print();
+    var printContents = document.getElementById('printarea').innerHTML;
+			var originalContents = document.body.innerHTML;
+
+			document.body.innerHTML = printContents;
+
+			window.print();
+
+			document.body.innerHTML = originalContents;
+   // window.print();
+}
+
   onSubmit =(e) =>{
     e.preventDefault();
     const userData ={
@@ -65,7 +88,14 @@ class index extends Component {
     const { errors } = this.state ;
     return (
       <div>
-        <Row>
+          <iframe id="ifmcontentstoprint" style={{
+                        height: '0px',
+                        width: '0px',
+                        position: 'absolute',
+
+                    }}></iframe>
+
+        <Row id='printarea'>
         <Col xs="12" sm="6">
             <Card>
               <CardHeader>
@@ -98,7 +128,7 @@ class index extends Component {
               </CardBody>
               <CardFooter>
                 <Button type="submit" size="sm" color="primary" onClick={this.onSubmit}><i className="fa fa-dot-circle-o"></i> Submit</Button>
-                <Button type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
+                <Button type="reset" size="sm" color="danger" onClick={this.print}><i className="fa fa-ban"></i> Reset</Button>
               </CardFooter>
             </Card>
           </Col>

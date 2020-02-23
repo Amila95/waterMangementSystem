@@ -9,11 +9,14 @@ export const addClient = (data, history) => dispatch =>{
           payload: res.data
       })
   })
-  .then(res => history.push('/viewclient'))
+  ///drinkingwaterclient/viewclient/:id
+  //console.log("res "+ res.data.id)
+  .then(res => history.push('/drinkingwaterclient'))
+  // .then(res => console.log("res "+ res.id))
   .catch(err=>{
       dispatch({
           type: GET_ERRORS,
-          payload: err.response.data
+          payload: err.data
       })
   })
 }

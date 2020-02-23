@@ -11,7 +11,7 @@ export default {
     },
     {
       name: 'Waste Water',
-      url: '/Documents',
+      url: '/wastewaterclient',
       icon: 'icon-speedometer',
       // badge: {
       //   variant: 'info',

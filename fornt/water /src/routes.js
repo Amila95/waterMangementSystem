@@ -42,19 +42,43 @@ const ViewClient = React.lazy(() => import('./views/DrinkIngWater/ViewClient/ind
 const CreatUser = React.lazy(() => import('./views/UserCreation/index'));
 const ReportDetails = React.lazy(() => import('./views/ReportDetails/index'));
 const CalculationSheet = React.lazy(() => import('./views/CalculationSheet/index'));
+const CalculationSheetDrinkWater = React.lazy(() => import('./views/CalculationSheetDrinkingWater/index'));
+
+const WasteWaterClient = React.lazy(() => import('./views/WasteWater/Client/index'));
+const WasteAddNewClient = React.lazy(() => import('./views/WasteWater/NewClient/index'));
+const WasteViewClient = React.lazy(() => import('./views/WasteWater/ViewClient/index'));
+const WasteReportDetails = React.lazy(() => import('./views/WasteWater/ReportDetails/index'));
+const WasteCalculationSheet = React.lazy(() => import('./views/CalculationSheet/index'));
+//const CalculationSheetDrinkWater = React.lazy(() => import('./views/CalculationSheetDrinkingWater/index'));
+
+const Report = React.lazy(() => import('./views/Report/index'));
 const Documents = React.lazy(() => import('./views/Documents'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/drinkingwaterclient', name: 'DrinkingWaterClient', component: DrinkWaterClient },
-  { path: '/addnewclient', name: 'AddNewClient', component: AddNewClient },
+
+  { path: '/drinkingwaterclient',exact: true, name: 'DrinkingWaterClient', component: DrinkWaterClient },
+  { path: '/drinkingwaterclient/addnewclient', name: 'AddNewClient', component: AddNewClient },
+  { path: '/drinkingwaterclient/viewclient/:id', exact: true, name: 'ViewClient', component: ViewClient },
+  { path: '/drinkingwaterclient/viewclient/:id/reportDetails', exact: true,name: 'ReportDetails', component: ReportDetails },
+  { path: '/drinkingwaterclient/viewclient/:id/reportDetails/calculationSheet', name: 'CalculationSheetForWasteWater', component: CalculationSheetDrinkWater },
+
+  { path: '/wastewaterclient',exact: true, name: 'WasteWaterClient', component: WasteWaterClient },
+  { path: '/wastewaterclient/addnewclient', name: 'WasteAddNewClient', component: WasteAddNewClient },
+  { path: '/wastewaterclient/viewclient/:id', exact: true, name: 'WasteViewClient', component: WasteViewClient },
+  { path: '/wastewaterclient/viewclient/:id/reportDetails', exact: true,name: 'WasteReportDetails', component: WasteReportDetails },
+  { path: '/wastewaterclient/viewclient/:id/reportDetails/calculationSheet', name: 'CalculationSheetForWasteWater', component: WasteCalculationSheet },
+
+
+  // { path: '/drinkingwaterclient/viewclient/:id/reportDetails/calculationSheet', name: 'CalculationSheet', component: CalculationSheet },
+
+
+
   { path: '/addnewuser', name: 'AddNewUser', component: CreatUser },
-  { path: '/viewclient/:id', name: 'ViewClient', component: ViewClient },
-  { path: '/reportDetails', name: 'ReportDetails', component: ReportDetails },
-  { path: '/calculationSheet', name: 'CalculationSheet', component: CalculationSheet },
   { path: '/Documents', name: 'AddNewUser', component: Documents },
+  { path: '/report', name: 'Report', component: Report },
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },

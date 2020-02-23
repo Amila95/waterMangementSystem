@@ -46,6 +46,8 @@ public class ReportDetails {
     private String analysisEndDate_Chemical;
     @NotBlank(message = "date of sampling is required")
     private String analysisEndDate_Bio;
-
+    private String oilAndGrease;
+    private String tss;
+    private String cod;
 
 }

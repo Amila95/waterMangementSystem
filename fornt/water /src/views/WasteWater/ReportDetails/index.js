@@ -173,8 +173,8 @@ class index extends Component {
               </FormGroup>
             </CardBody>
             <CardFooter>
-              
-              <Button type="submit" size="sm" color="primary" ><i className="fa fa-dot-circle-o"></i> Submit</Button>
+
+              <Button type="submit" size="sm" color="primary" onClick={this.onSubmit}><i className="fa fa-dot-circle-o"></i> Submit</Button>
               <Button type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Reset</Button>
             </CardFooter>
           </Card>

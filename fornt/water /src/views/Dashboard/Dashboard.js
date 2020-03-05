@@ -19,6 +19,7 @@ import {
   Progress,
   Row,
   Table,
+  Modal, ModalBody, ModalFooter, ModalHeader,
 } from 'reactstrap';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
@@ -28,14 +29,84 @@ import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 
 class Dashboard extends Component {
+  // constructor(props) {
+  //   super(props);
+
+
+  //   this.state = {
+  //     dropdownOpen: false,
+  //     radioSelected: 2,
+  //   };
+  // }
   constructor(props) {
     super(props);
-
-
     this.state = {
-      dropdownOpen: false,
-      radioSelected: 2,
+      modal: false,
+      large: false,
+      small: false,
+      primary: false,
+      success: false,
+      warning: false,
+      danger: false,
+      info: false,
     };
+
+    this.toggle = this.toggle.bind(this);
+    this.toggleLarge = this.toggleLarge.bind(this);
+    this.toggleSmall = this.toggleSmall.bind(this);
+    this.togglePrimary = this.togglePrimary.bind(this);
+    this.toggleSuccess = this.toggleSuccess.bind(this);
+    this.toggleWarning = this.toggleWarning.bind(this);
+    this.toggleDanger = this.toggleDanger.bind(this);
+    this.toggleInfo = this.toggleInfo.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal,
+    });
+  }
+
+  toggleLarge() {
+    this.setState({
+      large: !this.state.large,
+    });
+  }
+
+  toggleSmall() {
+    this.setState({
+      small: !this.state.small,
+    });
+  }
+
+  togglePrimary() {
+    this.setState({
+      primary: !this.state.primary,
+    });
+  }
+
+  toggleSuccess() {
+    this.setState({
+      success: !this.state.success,
+    });
+  }
+
+  toggleWarning() {
+    this.setState({
+      warning: !this.state.warning,
+    });
+  }
+
+  toggleDanger() {
+    this.setState({
+      danger: !this.state.danger,
+    });
+  }
+
+  toggleInfo() {
+    this.setState({
+      info: !this.state.info,
+    });
   }
 
   componentDidMount() {
@@ -95,10 +166,10 @@ componentWillReceiveProps(nextProps){
             </Link>
           </Col>
 
-          <Col xs="12" sm="6" lg="3">
-          <Link to={'/wastewaterclient'}>
-            <Card className="text-white bg-warning">
-              <CardBody className="pb-0">
+          <Col xs="12" sm="6" lg="3"  >
+          {/* <Link to={'/wastewaterclient'}> */}
+            <Card className="text-white bg-warning"  >
+              <CardBody className="pb-0" onClick={this.toggleSuccess}>
 
                 <div className="text-value">Raw Water</div>
                 {/* <div>Members online</div> */}
@@ -107,13 +178,24 @@ componentWillReceiveProps(nextProps){
                 {/* <Line data={cardChartData3} options={cardChartOpts3} height={70} /> */}
               </div>
             </Card>
-            </Link>
+            {/* </Link> */}
           </Col>
+          <Modal isOpen={this.state.success} toggle={this.toggleSuccess}
+                       className={'modal-success ' + this.props.className}>
+                  {/* <ModalHeader toggle={this.toggleSuccess}>Modal title</ModalHeader> */}
+                  <ModalBody>
+                    Still not development
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button color="success" onClick={this.toggleSuccess}>Ok</Button>{' '}
+                    {/* <Button color="secondary" onClick={this.toggleSuccess}>Cancel</Button> */}
+                  </ModalFooter>
+                </Modal>
 
           <Col xs="12" sm="6" lg="3">
-          <Link to={'/wastewaterclient'}>
+          {/* <Link to={'/wastewaterclient'}> */}
             <Card className="text-white bg-danger">
-              <CardBody className="pb-0">
+              <CardBody className="pb-0" onClick={this.toggleSuccess}>
 
                 <div className="text-value">Boiler Water</div>
                 {/* <div>Members online</div> */}
@@ -122,7 +204,7 @@ componentWillReceiveProps(nextProps){
                 {/* <Bar data={cardChartData4} options={cardChartOpts4} height={70} /> */}
               </div>
             </Card>
-            </Link>
+            {/* </Link> */}
           </Col>
         </Row>
 

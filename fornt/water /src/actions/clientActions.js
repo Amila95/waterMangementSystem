@@ -16,14 +16,14 @@ export const addClient = (data, history) => dispatch =>{
   .catch(err=>{
       dispatch({
           type: GET_ERRORS,
-          payload: err.data
+          payload: err.response.data
       })
   })
 }
 
 export const getClient =  id => dispatch =>{
   console.log("iddd"+id);
-  axios.get(`/api/client/${id}`)
+  axios.get(`/api/clientbyName/${id}`)
   .then(res=>
   { dispatch({
           type: ADD_CLIENT,

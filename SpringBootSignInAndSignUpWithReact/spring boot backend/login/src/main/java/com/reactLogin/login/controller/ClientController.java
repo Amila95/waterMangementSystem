@@ -47,5 +47,12 @@ public class ClientController {
 
         return  new ResponseEntity<>(client, HttpStatus.CREATED);
     }
+    @GetMapping("/clientbyName/{id}")
+    public ResponseEntity<?> getEachClientByName(@PathVariable String id){
+        System.out.println(id);
+        Client client = clientService.getClientByName(id);
+
+        return  new ResponseEntity<>(client, HttpStatus.CREATED);
+    }
 
 }

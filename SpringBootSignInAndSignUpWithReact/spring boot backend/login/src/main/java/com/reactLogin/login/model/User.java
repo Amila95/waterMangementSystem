@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name="users")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,6 +31,7 @@ public class User implements UserDetails {
 
     @Email(message = "Username needs to be an email")
     @NotBlank(message = "username is required")
+    @Column(unique = true , length = 32)
     private String username;
 
 //    private String email;

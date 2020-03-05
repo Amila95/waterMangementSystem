@@ -52,6 +52,7 @@ const WasteCalculationSheet = React.lazy(() => import('./views/CalculationSheet/
 //const CalculationSheetDrinkWater = React.lazy(() => import('./views/CalculationSheetDrinkingWater/index'));
 
 const Report = React.lazy(() => import('./views/Report/index'));
+const DrinkingReport = React.lazy(() => import('./views/DrinkIngWater/report/index'));
 const Documents = React.lazy(() => import('./views/Documents'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
@@ -79,6 +80,7 @@ const routes = [
   { path: '/addnewuser', name: 'AddNewUser', component: CreatUser },
   { path: '/Documents', name: 'AddNewUser', component: Documents },
   { path: '/report', name: 'Report', component: Report },
+  { path: '/drinkingwaterReport', name: 'Report', component: DrinkingReport },
 
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },
